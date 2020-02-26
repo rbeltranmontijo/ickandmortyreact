@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Episodio = ({ episodio }) => {
-  console.log(episodio);
   const { name, air_date, episode } = episodio;
 
   return (

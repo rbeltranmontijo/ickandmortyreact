@@ -3,10 +3,10 @@ import Error from "../components/Error";
 import CardPersonaje from "../components/CardPersonaje";
 
 const Personajes = props => {
-  console.log(props.location.state.episodio.characters);
   const [personajes, guardarPersonajes] = useState([]);
   useEffect(() => {
     guardarPersonajes(props.location.state.episodio.characters);
+    // eslint-disable-next-line
   }, []);
   if (personajes === []) {
     return <Error />;

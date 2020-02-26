@@ -4,12 +4,10 @@ import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 
 const CardPersonaje = props => {
-  console.log(props);
   const [personaje, guardarPersonaje] = useState({});
   const consultarApi = async () => {
     try {
       const resultado = await axios.get(props.episodio);
-      console.log(resultado.data);
       guardarPersonaje(resultado.data);
     } catch (error) {
       //   console.log("errorrrrrrr");
@@ -18,6 +16,7 @@ const CardPersonaje = props => {
   };
   useEffect(() => {
     consultarApi();
+    // eslint-disable-next-line
   }, []);
   return (
     <>

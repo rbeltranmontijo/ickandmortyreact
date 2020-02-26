@@ -31,9 +31,8 @@ const Episodios = props => {
     guardarLoading(true);
 
     consultarApi();
+    // eslint-disable-next-line
   }, [props.location.state]);
-
-  console.log(props);
 
   if (loading) {
     return <Error />;
@@ -51,18 +50,17 @@ const Episodios = props => {
           ) : null}
         </div>
         <div>
-          <Link
-            to={{
-              pathname:
-                props.location.state !== undefined
-                  ? `/${props.location.state.episodioPagina.page}`
-                  : `/${episodioPagina.page}`,
-              state: { episodioPagina }
-            }}
-            className="mx-2 my-2 btn"
-          >
-            Siguiente
-          </Link>
+          {props.location.state !== undefined ? null : (
+            <Link
+              to={{
+                pathname: `/${episodioPagina.pages}`,
+                state: { episodioPagina }
+              }}
+              className="mx-2 my-2 btn"
+            >
+              Siguiente
+            </Link>
+          )}
         </div>
       </div>
       <table className="table table-striped">
